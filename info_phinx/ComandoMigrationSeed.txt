@@ -1,0 +1,24 @@
+Criar a Classe SEEDER
+
+comando no terminal:
+$  vendor/bin/phinx seed:create NomeClasse
+(a seeder serve para testar os dados)
+
+CRIAR MIGRATION
+$ vendor/bin/phinx.bat create CreateUsuario
+
+EXECUTANDO MIGRATION
+php vendor/robmorgan/phinx/bin/phinx migrate
+
+EXECUTANDO SEED
+php vendor/robmorgan/phinx/bin/phinx seed:run
+
+EXECUTANDO ROLLBACK
+php vendor/robmorgan/phinx/bin/phinx rollback
+----------------------------------------------
+
+INSTALAR Biblioteca/Componente FAKER
+
+composer require fzaninotto/faker:1.6.0 --dev
+
+
