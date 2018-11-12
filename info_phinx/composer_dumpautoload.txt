@@ -1,0 +1,6 @@
+Cria a pasta principal do composer "vendor".
+
+Esta pasta vai ter todas as dependencias da aplicação.
+
+Cria todos os tipos de autoload.
+

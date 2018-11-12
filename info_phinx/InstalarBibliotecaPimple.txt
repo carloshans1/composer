@@ -1,0 +1,1 @@
+composer require xtreamwayz/pimple-container-interop

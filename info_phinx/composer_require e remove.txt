@@ -1,0 +1,1 @@
+composer require <nome componente>:versão para deixar fixo a versão se não colocar versão, vai atualizar automaticamente.
