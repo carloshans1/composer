@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace SONFin;
 
 
-interface ServiceContainInterface
+interface ServiceContainerInterface
 {
     // Adicionar um serviço
     public function add(string $name,$service);

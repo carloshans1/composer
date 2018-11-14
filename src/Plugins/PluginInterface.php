@@ -8,9 +8,9 @@
 
 namespace SONFin\Plugins;
 
-use SONFin\ServiceContainInterface;
+use SONFin\ServiceContainerInterface;
 
 interface PluginInterface
 {
-    public function register(ServiceContainInterface $container);
+    public function register(ServiceContainerInterface $container);
 }
