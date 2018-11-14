@@ -15,7 +15,7 @@ use SONFin\Plugins\PluginInterface;
 class Application
 {
     private $serviceContainer;
-
+    
     /**
     * Application constructor.
     * @param $serviceContainer
