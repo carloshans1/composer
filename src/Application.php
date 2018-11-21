@@ -55,6 +55,12 @@ class Application
     public function start()
     {
         $route = $this->service('route');
+
+        /*if(!$route){
+            echo "Página não encontrada";
+            exit;
+        }*/
+
         $callable = $route->handler;
         $callable();
     }
