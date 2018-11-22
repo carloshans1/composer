@@ -17,11 +17,13 @@ $app = new Application($serviceContainer);
 
 $app->plugin(new RoutePlugin());
 
+/* Trabalhando como cliente (RequestInterface)*/
 $app->get('/', function(RequestInterface $request){
     var_dump($request->getUri());die();    
     echo "Hello world, Carlos";
 });
 
+/* Trabalhando como Servidor (ServerRequestInterface)*/
 $app->get('/home/{name}', function(ServerRequestInterface $request){
     $response = new Response();
     $response->getBody()->write("Resposta com emmiter do diactoros");
