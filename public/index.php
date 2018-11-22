@@ -16,15 +16,21 @@ $serviceContainer = new ServiceContainer();
 $app = new Application($serviceContainer);
 
 $app->plugin(new RoutePlugin());
+$app->plugin(new ViewPlugin());
 
 /* Trabalhando como cliente (RequestInterface)*/
-$app->get('/', function(RequestInterface $request){
-    var_dump($request->getUri());die();    
-    echo "Hello world, Carlos";
+$app->get('/', function(RequestInterface $request) use($app){
+    /**
+     *  var_dump($request->getUri());die();    
+     *  echo "Hello world, Carlos";
+     */    
+
+    $view = $app->service('view.renderer');
+    return $view->render('teste.html.twig', ['name' => 'Carlos de Oliveira']);
 });
 
 /* Trabalhando como Servidor (ServerRequestInterface)*/
-$app->get('/home/{name}', function(ServerRequestInterface $request){
+$app->get('/home/{name}/{id}', function(ServerRequestInterface $request){
     $response = new Response();
     $response->getBody()->write("Resposta com emmiter do diactoros");
     return $response;

@@ -23,6 +23,10 @@ class ComposerStaticInitcc2cf14d8de8d9d72ff22492e09d8629
         array (
             'Xtreamwayz\\Pimple\\' => 18,
         ),
+        'T' => 
+        array (
+            'Twig\\' => 5,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
@@ -71,6 +75,10 @@ class ComposerStaticInitcc2cf14d8de8d9d72ff22492e09d8629
         'Xtreamwayz\\Pimple\\' => 
         array (
             0 => __DIR__ . '/..' . '/xtreamwayz/pimple-container-interop/src',
+        ),
+        'Twig\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twig/twig/src',
         ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
@@ -155,6 +163,13 @@ class ComposerStaticInitcc2cf14d8de8d9d72ff22492e09d8629
     );
 
     public static $prefixesPsr0 = array (
+        'T' => 
+        array (
+            'Twig_' => 
+            array (
+                0 => __DIR__ . '/..' . '/twig/twig/lib',
+            ),
+        ),
         'P' => 
         array (
             'Pimple' => 
