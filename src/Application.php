@@ -73,14 +73,13 @@ class Application
             $request = $request->withAttribute($key, $value);
         }
 
-        $result = $this->runBefores();
-        if ($result) {
-            $this->emitResponse($result);
-            return;
-        }
-
         $callable = $route->handler;
         $response = $callable($request);
         $this->emitResponse($response);
+    }
+
+    protected function emitResponse(ResponseInterface $response){
+        $emitter = new SapiEmitter();
+        $emitter->emit($response);
     }
 }

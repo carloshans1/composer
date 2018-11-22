@@ -22,16 +22,11 @@ $app->get('/', function(RequestInterface $request){
     echo "Hello world, Carlos";
 });
 
-$app->get('/home', function(){
-    echo "Mostrando a Home!!";
-});
-
-/*$app->get('/home/{name}/{id}', function (ServerRequestInterface $request) {
+$app->get('/home/{name}', function(ServerRequestInterface $request){
     $response = new Response();
-    $response->getBody()->write("response com emmiter do diactoros");
+    $response->getBody()->write("Resposta com emmiter do diactoros");
     return $response;
 });
-*/
 
 $app->start();
 
