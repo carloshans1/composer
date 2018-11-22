@@ -10,17 +10,21 @@ declare(strict_types=1);
 
 namespace SONFin;
 
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use SONFin\Plugins\PluginInterface;
+use Zend\Diactoros\Response\RedirectResponse;
+use Zend\Diactoros\Response\SapiEmitter;
 
 class Application
 {
     private $serviceContainer;
-    
     /**
-    * Application constructor.
-    * @param $serviceContainer
-    */
-
+     * Application constructor.
+     * @param $serviceContainer  
+     */
+    
     public function __construct(ServiceContainerInterface $serviceContainer)
     {
         $this->serviceContainer = $serviceContainer;
@@ -52,16 +56,31 @@ class Application
         return $this;
     }
 
-    public function start()
+    public function start(): void
     {
         $route = $this->service('route');
+        /**
+         * @var ServerRequestInterface $request
+         */
+        $request = $this->service(RequestInterface::class);
 
-        /*if(!$route){
+        if (!$route) {
             echo "Página não encontrada";
             exit;
-        }*/
+        }
+
+        foreach ($route->attributes as $key => $value) {
+            $request = $request->withAttribute($key, $value);
+        }
+
+        $result = $this->runBefores();
+        if ($result) {
+            $this->emitResponse($result);
+            return;
+        }
 
         $callable = $route->handler;
-        $callable();
+        $response = $callable($request);
+        $this->emitResponse($response);
     }
 }

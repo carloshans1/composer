@@ -13,16 +13,15 @@ use Xtreamwayz\Pimple\Container;
 
 class ServiceContainer implements ServiceContainerInterface
 {
-    //Container da instância do PIMPLE
     private $container;
-
     /**
      * ServiceContainer constructor.
+     *
      * @param $container
      */
     public function __construct()
     {
-        $this->container = new Container() ;
+        $this->container = new Container();
     }
 
     public function add(string $name, $service)
@@ -44,4 +43,5 @@ class ServiceContainer implements ServiceContainerInterface
     {
         return $this->container->has($name);
     }
+    
 }
