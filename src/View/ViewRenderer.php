@@ -9,9 +9,8 @@ namespace SONFin\View;
 
 use Psr\Http\Message\ResponseInterface;
 use Zend\Diactoros\Response;
-use SONFin\View\ViewRendererInterface;
 
-class ViewRenderer implements ViewRenderInterface 
+class ViewRenderer implements ViewRendererInterface
 {
     /**
      * @var \Twig_Emvironment

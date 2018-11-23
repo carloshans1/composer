@@ -11,7 +11,7 @@ namespace SONFin\View;
 
 use Psr\Http\Message\ResponseInterface;
 
-interface ViewRenderInterface 
+interface ViewRendererInterface
 {
     /**
      * Função: render 
