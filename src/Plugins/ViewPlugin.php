@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 /**
  * Created by PHP.
  * User: carlosoliveira
@@ -11,7 +11,6 @@ namespace SONFin\Plugins;
 
 use Interop\Container\ContainerInterface;
 use SONFin\ServiceContainerInterface;
-use SONFin\View\Twig\TwigGlobals;
 use SONFin\View\ViewRenderer;
 
 class ViewPlugin implements PluginInterface

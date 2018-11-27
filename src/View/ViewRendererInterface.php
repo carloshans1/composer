@@ -21,5 +21,5 @@ interface ViewRendererInterface
      *
      * @return ResponseInterface
      */
-    public function render(string $template, array $context = []): ResponseInterface;
+    public function render(string $template,array $context = []): ResponseInterface;
 }
