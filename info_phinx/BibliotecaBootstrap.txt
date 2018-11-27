@@ -1,0 +1,25 @@
+Instalar bootstrap
+
+composer require twbs/bootstrap:~3.0
+
+
+E depois inclua os arquivos que estão em /vendor:
+
+<link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="vendor/components/jquery/jquery.min.js"></script>
+<script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+
+Obs:
+
+O Bootstrap 4 vai pedir para que seja incluido o auxiliar Tether.io, basta incluir seu caminho CDN ANTES do arquivo JavaScript do bootstrap, ficando esses arquivos necessários.
+
+<link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="vendor/components/jquery/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js"></script>
+<script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+
+Obs 2:
+
+Se o arquivo inicial (index) estiver em public, onde vai o caminho para o arquivo indique para voltar uma pasta antes do informar o caminho completo:
+
+    ../vendor/caminho/para/o/arquivo.formato

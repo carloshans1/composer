@@ -1,0 +1,3 @@
+Instalar os componetes jquery para utilizar Bootstrap
+
+composer require components/jquery:~3.0
