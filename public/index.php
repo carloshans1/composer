@@ -18,7 +18,7 @@ $app->plugin(new ViewPlugin());
 /* Trabalhando como cliente (RequestInterface)*/
 $app->get('/', function(RequestInterface $request) use($app){
     $view = $app->service('view.renderer');
-    return $view->render('test.html.twig', ['name' => 'Luiz Carlos']);
+    return $view->render('test.html.twig', ['name' => 'Carlos']);
 });
 
 /* Trabalhando como Servidor (ServerRequestInterface)*/
