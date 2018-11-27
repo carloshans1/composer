@@ -5,7 +5,7 @@
  * Date: 22/11/2018
  * Time: 16:04 
  */
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace SONFin\View;
 
