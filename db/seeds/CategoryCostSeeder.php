@@ -4,7 +4,7 @@ use Phinx\Seed\AbstractSeed;
 
 class CategoryCostSeeder extends AbstractSeed
 {
-    /**
+    /** Executando o Metodo e escrevendo no banco de dados
      * Run Method.
      *
      * Write your database seeder using this method.
@@ -27,19 +27,22 @@ class CategoryCostSeeder extends AbstractSeed
         }
         $categoryCosts->insert($data)->save();
 
-        /**
-        $categoryCosts->insert([
-            [
-                'nome' => 'Category 1',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ],
-            [
-                'nome' => 'Category 2',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
-            ]
-        ])->save();
-        */
+
+/** $categoryCosts->insert
+        *    $categoryCosts->insert([
+        *        [
+        *            'nome' => 'Category 1',
+        *            'created_at' => date('Y-m-d H:i:s'),
+        *            'updated_at' => date('Y-m-d H:i:s')
+        *        ],
+        *        [
+        *            'nome' => 'Category 2',
+        *            'created_at' => date('Y-m-d H:i:s'),
+        *            'updated_at' => date('Y-m-d H:i:s')
+        *        ]
+        *    ])->save();
+ */
+
+ 
     }
 }

@@ -7,6 +7,7 @@ use SONFin\Plugins\RoutePlugin;
 use SONFin\Plugins\ViewPlugin;
 use SONFin\ServiceContainer;
 use SONFin\Plugins\DbPlugin;
+use SONFin\Models\CategoryCost;
 
 require_once __DIR__ .'/../vendor/autoload.php';
 
@@ -20,7 +21,7 @@ $app->plugin(new DbPlugin());
 
 $app->get('/category-costs', function() use($app) {
     $view = $app->service('view.renderer');
-    $meuModel = new \SONFin\Models\CategoryCost();
+    $meuModel = new CategoryCost();
     $categories = $meuModel->all();
     return $view->render('category-costs/list.html.twig', [
         'categories' => $categories

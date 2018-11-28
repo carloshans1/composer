@@ -6,7 +6,7 @@
  * Time: 08:31 
  **/
 
-namespace SONFin\Plugins;
+namespace SONFin\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
