@@ -1,10 +1,12 @@
 <?php
+
 declare(strict_types=1);
-/**
+
+/** Informação sobre criação do arquivo
  * User: carlos de oliveira
  * Date: 28/11/2018
  * Time: 08:31
- */
+ */ 
 
 namespace SONFin\Plugins;
 
