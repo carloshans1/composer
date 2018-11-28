@@ -1,11 +1,10 @@
 <?php
 
-
 use Phinx\Migration\AbstractMigration;
 
-class CreateCategoriaCusto extends AbstractMigration
+class CreateCategoryCosts extends AbstractMigration
 {
-    /**
+    /** Metodo para criar Tabela category_costs
      * Change Method.
      *
      * Write your reversible migrations using this method.
@@ -34,15 +33,16 @@ class CreateCategoriaCusto extends AbstractMigration
 
     public function up()        //Migrate Up.
     {
-        $table = $this->table('categoriaCusto');
+        $table = $this->table('category_costs');
         $table->addColumn('nome', 'string')
               ->addColumn('created_at', 'datetime')
               ->addColumn('updated_at', 'datetime')
               ->create();
     }
 
-    public function down()        //Migrate Down.
+    public function down()        
     {
-        $this->table('categoriaCusto')->drop()->save();
+        $this->dropTable('category_costs');
+        //$this->table('category_costs')->drop()->save();
     }
 }
