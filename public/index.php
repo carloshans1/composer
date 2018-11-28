@@ -37,7 +37,7 @@ $app
         //Cadastro de category
         $data = $request->getParsedBody();
         \SONFin\Models\CategoryCost::create($data);
-        return new \Zend\Diactoros\Response\RedirectResponse('/category-costs');
+        return new \Zend\Diactoros\Response\RedirectResponse('category-costs/create.html.twig');
     });
 
 $app->start();

@@ -20,7 +20,7 @@ class CategoryCostSeeder extends AbstractSeed
         foreach (range(1,10) as $value){
             $data[] =
                 [
-                    'nome' => $faker->name,
+                    'name' => $faker->name,
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s')
                 ];

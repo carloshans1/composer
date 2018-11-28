@@ -34,7 +34,7 @@ class CreateCategoryCosts extends AbstractMigration
     public function up()        //Migrate Up.
     {
         $table = $this->table('category_costs');
-        $table->addColumn('nome', 'string')
+        $table->addColumn('name', 'string')
               ->addColumn('created_at', 'datetime')
               ->addColumn('updated_at', 'datetime')
               ->create();

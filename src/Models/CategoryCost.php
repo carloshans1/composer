@@ -15,8 +15,8 @@ class CategoryCost extends Model
 {
     /** Segurança - Mass Assignment - Atribuição massiva 
      */
-    protected $filllable = [
-        'nome'
+    protected $fillable = [
+        'name'
     ];
 }
 
