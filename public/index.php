@@ -18,15 +18,27 @@ $app->plugin(new RoutePlugin());
 $app->plugin(new ViewPlugin());
 $app->plugin(new DbPlugin());
 
+$app
+    ->get('/category-costs', function() use($app) {
+        $view = $app->service('view.renderer');
+        $meuModel = new CategoryCost();
+        $categories = $meuModel->all();    
+        return $view->render('category-costs/list.html.twig', [
+            'categories' => $categories
+        ]);
+    })
 
-$app->get('/category-costs', function() use($app) {
-    $view = $app->service('view.renderer');
-    $meuModel = new CategoryCost();
-    $categories = $meuModel->all();    
-    return $view->render('category-costs/list.html.twig', [
-        'categories' => $categories
-    ]);
-});
+    ->get('/category-costs/new', function() use($app) {
+        $view = $app->service('view.renderer');
+        return $view->render('category-costs/create.html.twig');
+    });
+
+    $app->post('/category-costs/store', function(ServerRequestInterface $request){
+        //Cadastro de category
+        $data = $request->getParsedBody();
+        \SONFin\Models\CategoryCost::create($data);
+        return new \Zend\Diactoros\Response\RedirectResponse('/category-costs');
+    });
 
 $app->start();
 

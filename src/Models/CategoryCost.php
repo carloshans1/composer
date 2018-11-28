@@ -13,7 +13,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class CategoryCost extends Model
 {
-    
+    /** Segurança - Mass Assignment - Atribuição massiva 
+     */
+    protected $filllable = [
+        'nome'
+    ];
 }
 
 
