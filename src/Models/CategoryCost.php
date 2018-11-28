@@ -8,6 +8,9 @@
 
 namespace SONFin\Plugins;
 
+use Illuminate\Database\Eloquent\Model;
+
+
 class CategoryCost extends Model
 {
     
