@@ -10,23 +10,16 @@ namespace SONFin\Plugins;
 
 use Interop\Container\ContainerInterface;
 use SONFin\ServiceContainerInterface;
-use Illuminate\Database\Capsule\Manager;
+use Illuminate\Database\Capsule\Manager as Capsule;
 
 class DbPlugin implements PluginInterface
 {
     public function register(ServiceContainerInterface $container)
     {
-        $container->addLazy('twig', function(ContainerInterface $container){
-            $loader = new \Twig_Loader_Filesystem(__DIR__ . '/../../templates');
-            $twig = new \Twig_Environment($loader);
-            return $twig;
-        });
-
-        $container->addLazy('view.renderer', function(ContainerInterface $container){
-            $twigEnviroment = $container->get('twig');
-            return new ViewRenderer($twigEnviroment);
-        });
-        
+        $capsule = new Capsule();
+        $config = include __DIR__ . '/../../config/db.php';
+        $capsule->addConnection($config['development']);
+        $capsule->bootEloquent();
     }
     
 }
