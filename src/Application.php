@@ -63,6 +63,11 @@ class Application
         return $this;
     }
 
+    public function redirect($path) 
+    {
+        return new RedirectResponse($path);
+    }
+
     public function start(): void
     {
         $route = $this->service('route');

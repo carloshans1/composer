@@ -1,7 +1,6 @@
 <?php
 declare(strict_types=1);
-/**
- * Created by PHP.
+/** Plugin de rotas para o sistema 
  * User: carlosoliveira
  * Date: 13/11/2018
  * Time: 16:45
