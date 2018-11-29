@@ -24,7 +24,7 @@ class ViewPlugin implements PluginInterface
             $generator = $container->get('routing.generator');
             $twig->addFunction(new \Twig_SimpleFunction('route', 
                 function(string $name, array $params = []) use($generator){
-                    return $generator-generate($name, $params);
+                    return $generator->generate($name, $params);
                 }));
             return $twig;
         });

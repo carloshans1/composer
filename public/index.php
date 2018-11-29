@@ -26,7 +26,8 @@ $app
         return $view->render('category-costs/list.html.twig', [
             'categories' => $categories
         ]);
-    })
+    }, 'category-costs.list')
+    
     ->get('/category-costs/new', function() use($app) {
         $view = $app->service('view.renderer');
         return $view->render('category-costs/create.html.twig');
@@ -37,8 +38,9 @@ $app
         $data = $request->getParsedBody();
         \SONFin\Models\CategoryCost::create($data);
         //Redireciona pelo metodo redirect no Application.php
-        return $app->redirect('/category-costs');
-    });
+        //return $app->redirect('/category-costs');
+        return $app->route('category-costs.list');
+    }, 'category-costs.store');
 
 $app->start();
 
