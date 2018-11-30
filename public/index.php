@@ -40,7 +40,28 @@ $app
         //Redireciona pelo metodo redirect no Application.php
         //return $app->redirect('/category-costs');
         return $app->route('category-costs.list');
-    }, 'category-costs.store');
+    }, 'category-costs.store')
+    ->get('/category-costs/{id}/edit', function(ServerRequestInterface $request) use($app) {
+        $view = $app->service('view.renderer');
+        $id = $request->getAttribute('id');
+        $category = \SONFin\Models\CategoryCost::findorfail($id);
+        return $view->render('category-costs/edit.html.twig', [
+            'category' => $category
+        ]);
+    }, 'category-costs.edit')
+    ->post('/category-costs/{id}/update', function(ServerRequestInterface $request) use($app) {
+        $view = $app->service('view.renderer');
+        $id = $request->getAttribute('id');
+        /** Metodo find e findorfail
+         * find faz consulta e findorfail cria uma exceção se não encontrar
+         * $category = \SONFin\Models\CategoryCost::find($id);
+         */
+        $category = \SONFin\Models\CategoryCost::findorfail($id);
+        $data = $request->getParsedBody();
+        $category->fill($data);
+        $category->save();
+        return $app->route('category-costs.list');
+    }, 'category-costs.update');
 
 $app->start();
 
