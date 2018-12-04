@@ -2,7 +2,7 @@
 
 use Phinx\Migration\AbstractMigration;
 
-class CreateCategoryCosts extends AbstractMigration
+class CreateCategoryCost extends AbstractMigration
 {
     /** Metodo para criar Tabela category_costs
      * Change Method.
@@ -29,8 +29,12 @@ class CreateCategoryCosts extends AbstractMigration
      * Remember to call "create()" or "update()" and NOT "save()" when working
      * with the Table class.
      */
-    //public function change() // create the table
 
+    
+    
+    
+    
+     
     public function up()        //Migrate Up.
     {
         $table = $this->table('category_costs');

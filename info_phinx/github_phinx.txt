@@ -1,0 +1,14 @@
+﻿Segue componete e toda documentação.
+
+https://github.com/cakephp/phinx
+
+
+Esse componente interage com o banco dedados
+realizando as migrations
+
+
+criando Migration Utilizando PHINX:
+vendor\bin\phinx.bat create CreateUsersTable
+
+Apos executar esse comando será criado a migration CreateUsersTable.
+O nome do arquivo será separado por ( _ )  Create_Users_Table.php e class CreateUsersTable

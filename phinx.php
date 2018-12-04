@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/vendor//autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 $db = include __DIR__ . '/config/db.php';
 
@@ -17,7 +17,7 @@ list(
 return [
   'paths' => [
       'migrations' => [
-          __DIR__ . '/db/migrations'
+          __DIR__ . '\db\migrations'
       ],
       'seeds' => [
           __DIR__ . '/db/seeds'
