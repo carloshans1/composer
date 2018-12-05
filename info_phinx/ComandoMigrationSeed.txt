@@ -9,12 +9,18 @@ $ vendor/bin/phinx.bat create CreateUsuario
 
 EXECUTANDO MIGRATION
 php vendor/robmorgan/phinx/bin/phinx migrate
+vendor/bin/phinx.bat migrate
 
 EXECUTANDO SEED
 php vendor/robmorgan/phinx/bin/phinx seed:run
+vendor/bin/phinx.bat seed:run
 
 EXECUTANDO ROLLBACK
 php vendor/robmorgan/phinx/bin/phinx rollback
+vendor/bin/phinx.bat rollback
+
+RollBack para todas as tabelas:
+rollback -e development -t 0
 ----------------------------------------------
 
 INSTALAR Biblioteca/Componente FAKER

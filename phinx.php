@@ -15,25 +15,25 @@ list(
     ) = $db['development'];
 
 return [
-  'paths' => [
-      'migrations' => [
-          __DIR__ . '\db\migrations'
-      ],
-      'seeds' => [
-          __DIR__ . '/db/seeds'
-      ]
-  ],
-  'environments' => [
-      'default_migration_table' => 'migrations',
-      'default_database' => 'development',
-      'development' => [
-          'adapter' => $adapter,
-          'host' => $host,
-          'name' => $name,
-          'user' => $user,
-          'pass' => $pass,
-          'charset' => $charset,
-          'collation' => $collation
-      ]
-  ]
+    'paths' => [
+        'migrations' => [
+            __DIR__ . '/db/migrations'
+        ],
+        'seeds' => [
+            __DIR__ . '/db/seeds'
+        ]
+    ],
+    'environments' => [
+        'default_migration_table' => 'migrations',
+        'default_database' => 'development',
+        'development' => [
+            'adapter' => $adapter,
+            'host' => $host,
+            'name' => $name,
+            'user' => $user,
+            'pass' => $pass,
+            'charset' => $charset,
+            'collation' => $collation
+        ]
+    ]
 ];
