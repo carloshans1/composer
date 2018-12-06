@@ -19,6 +19,7 @@ $app->plugin(new DbPlugin());
 //Incluindo o arquivo de rotas
 require_once __DIR__ . '/../src/controllers/category-costs.php';
 require_once __DIR__ . '/../src/controllers/users.php';
+require_once __DIR__ . '/../src/controllers/auth.php';
 
 
 $app->start();
