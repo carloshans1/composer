@@ -16,5 +16,8 @@ interface AuthInterface
 /** Metodo para checar */
     public function check():bool;
 /** Metodo para remover o usuario até que faça o login novamente */
-    public function logout():void;    
+    public function logout():void; 
+    /** Metodo para criptografar a senha */
+    public function hashPassword(string $password):string;
+    
 }

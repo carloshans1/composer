@@ -5,6 +5,7 @@ namespace Jasny\Auth;
 /**
  * Entity used for authentication
  */
+
 interface User
 {
     /**
@@ -26,8 +27,7 @@ interface User
      * 
      * @return string
      */
-    public function getHashedPassword();
-    
+    public function getHashedPassword();    
     
     /**
      * Event called on login.

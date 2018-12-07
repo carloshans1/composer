@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 /** Auth Interface
  * User: Carlos de Oliveira
@@ -9,10 +8,11 @@ declare(strict_types=1);
 
 namespace SONFin\Auth;
 
+use Jasny\Auth\Sessions;
 use Jasny\Auth\User;
 use SONFin\Repository\RepositoryInterface;
 
-class JasnyAuth extends \Jansny\Auth
+class JasnyAuth extends \Jasny\Auth
 {
     use Sessions;
 
