@@ -14,7 +14,8 @@
         "twig/twig": "~1.0",
         "components/jquery": "~3.0",
         "twbs/bootstrap": "~3.0",
-        "illuminate/database": "5.4.13"
+        "illuminate/database": "5.4.13",
+        "jasny/auth": "1.0.1"
     },
     "autoload": {
         "psr-4": {

@@ -6,6 +6,7 @@ use SONFin\Plugins\RoutePlugin;
 use SONFin\Plugins\ViewPlugin;
 use SONFin\ServiceContainer;
 use SONFin\Plugins\DbPlugin;
+use SONFin\Plugins\AuthPlugin;
 
 require_once __DIR__ .'/../vendor/autoload.php';
 
@@ -15,6 +16,7 @@ $app = new Application($serviceContainer);
 $app->plugin(new RoutePlugin());
 $app->plugin(new ViewPlugin());
 $app->plugin(new DbPlugin());
+$app->plugin(new AuthPlugin);
 
 //Incluindo o arquivo de rotas
 require_once __DIR__ . '/../src/controllers/category-costs.php';

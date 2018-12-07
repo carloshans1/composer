@@ -1,0 +1,17 @@
+Instalação: 
+*************
+composer require jasny/auth:1.0.1
+
+Configuração:
+*************
+Authé uma classe abstrata. Você precisa estendê-lo e implementar os métodos 
+abstratos fetchUserByIde fetchUserByUsername.
+Você também precisa especificar como o usuário atual é persistido nas solicitações. 
+Se você quiser usar sessões normais do PHP, você pode simplesmente usar o Auth\Sessionstraço.
+
+Autorização:
+*************
+Por padrão, a Authclasse só faz autenticação. A autorização pode ser adicionada implementando a Authzinterface.
+Duas características são predefinidas para fazer Autorização: Authz\ByLevele Authz\ByGroup. Por nível
+Os Authz\ByLeveltraços implementam autorização com base nos níveis de acesso. Cada usuário recebe 
+permissões para o nível e todos os níveis abaixo.
