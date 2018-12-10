@@ -1,5 +1,5 @@
 <?php
-declare(strict_type=1);
+
 
 /** Informação sobre criação do arquivo
  * User: carlos de oliveira

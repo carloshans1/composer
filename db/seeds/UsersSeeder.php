@@ -1,6 +1,7 @@
 <?php
 
 use Phinx\Seed\AbstractSeed;
+use SONFin\Application;
 
 class UsersSeeder extends AbstractSeed
 {
@@ -13,21 +14,21 @@ class UsersSeeder extends AbstractSeed
      * http://docs.phinx.org/en/latest/seeding.html
      */
     public function run()
-    {
+    {        
         /** @var \SONFin\Application $app */
         $app = require __DIR__ . '/../bootstrap.php';
         $auth = $app->service('auth');
         
         $faker = \Faker\Factory::create('pt_BR');
         $users = $this->table('users');
-        /*$users->insert([
+        $users->insert([
             'first_name' => $faker->firstName,
             'last_name' => $faker->lastName,
             'email' => 'admin@user.com',
             'password' => $auth->hashPassword('123456'),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
-        ])->save();*/
+        ])->save();
         $data = [];
         foreach (range(1, 3) as $value) {
             $data[] = [

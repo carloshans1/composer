@@ -1,8 +1,8 @@
 <?php
 
 use SONFin\Application;
-use SONFin\Plugins\DbPlugin;
 use SONFin\Plugins\AuthPlugin;
+use SONFin\Plugins\DbPlugin;
 use SONFin\ServiceContainer;
 
 $serviceContainer = new ServiceContainer();

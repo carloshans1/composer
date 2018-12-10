@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 /** Auth Interface
  * User: Carlos de Oliveira
@@ -28,7 +27,7 @@ class Auth implements AuthInterface
     public function login(array $credentials):bool
     {
         list('email' => $email, 'password' => $password) = $credentials;
-        return $this->jasnyAuth->login($email,$password) !== null;
+        return $this->jasnyAuth->login($email, $password) !== null;
     }
 
     public function check():bool

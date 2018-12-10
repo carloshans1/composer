@@ -35,9 +35,9 @@ class JasnyAuth extends \Jasny\Auth
      * @param int/string $id
      * @return User/null
      */
-    protected function fetchUserById($id)
+    public function fetchUserById($id)
     {
-        return $this->repository->find($id,false);
+        return $this->repository->find($id, false);
     }
 
     /** Fetch a user by username
