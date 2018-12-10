@@ -45,7 +45,6 @@ class CreateCategoryCosts extends AbstractMigration
     public function down()
     {
         $this->table('category_costs')->drop()->save();
-        //$this->dropTable('category_costs');
     }
 
 }
