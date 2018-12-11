@@ -8,9 +8,10 @@
 
 namespace SONFin\Auth;
 
+use SONFin\Models\UserInterface;
+
 class Auth implements AuthInterface
 {
-
     /**
      * @var JasnyAuth
      */
@@ -33,13 +34,18 @@ class Auth implements AuthInterface
 
     public function check():bool
     {
-        return $this->jasnyAuth->user() !== null;
+        return $this->user() !== null;
     }
 
     public function logout(): void 
     {
         // TODO: Implement logout() method.
     }   
+
+    public function user(): ?UserInterface
+    {
+        return $this->jasnyAuth->user();
+    }
 
     public function hashPassword(string $password): string
     {
