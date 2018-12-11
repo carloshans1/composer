@@ -15,9 +15,9 @@ $app
         return $view->render('auth/login.html.twig');
     }, 'auth.show_login_form')    
     ->post('/login', function(ServerRequestInterface $request) use($app){
+        //var_dump($request); die;
         $view = $app->service('view.renderer');
-        $auth = $app->service('auth')->login();
-        /** Cadastro autenticação */        
+        $auth = $app->service('auth');
         $data = $request->getParsedBody();
         $result = $auth->login($data);
         if(!$result) {
