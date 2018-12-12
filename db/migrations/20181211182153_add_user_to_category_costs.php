@@ -9,7 +9,7 @@ class AddUserToCategoryCosts extends AbstractMigration
     {
         $this->table('category_costs')
             ->addColumn('user_id','integer')
-            ->addForeignKey('user_id','id','users')
+            ->addForeignKey('user_id','users','id')
             ->save();
     }
     public function down()
