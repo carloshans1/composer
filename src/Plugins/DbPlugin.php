@@ -16,6 +16,7 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 use SONFin\Repository\RepositoryFactory;
 use SONFin\Models\CategoryCost;
 use SONFin\Models\User;
+use SONFin\Models\BillReceive;
 
 class DbPlugin implements PluginInterface
 {
@@ -27,10 +28,15 @@ class DbPlugin implements PluginInterface
         $capsule->bootEloquent();
         
         $container->add('repository.factory', new RepositoryFactory());
+        
         $container->addLazy('category-cost.repository', function(ContainerInterface $container) {
             return $container->get('repository.factory')->factory(CategoryCost::class);
         });
-        
+
+        $container->addLazy('bill-receive.repository', function(ContainerInterface $container) {
+            return $container->get('repository.factory')->factory(BillReceive::class);
+        });
+
         $container->addLazy('user.repository', function(ContainerInterface $container) {
             return $container->get('repository.factory')->factory(User::class);
         });

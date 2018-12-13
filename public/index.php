@@ -8,7 +8,9 @@ use SONFin\ServiceContainer;
 use SONFin\Plugins\DbPlugin;
 use SONFin\Plugins\AuthPlugin;
 
-require_once __DIR__ .'/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+
+require_once __DIR__ . '/../src/helpers.php';
 
 $serviceContainer = new ServiceContainer();
 $app = new Application($serviceContainer);
@@ -22,6 +24,7 @@ $app->plugin(new AuthPlugin);
 require_once __DIR__ . '/../src/controllers/category-costs.php';
 require_once __DIR__ . '/../src/controllers/users.php';
 require_once __DIR__ . '/../src/controllers/auth.php';
+require_once __DIR__ . '/../src/controllers/bill-receives.php';
 
 
 $app->start();
