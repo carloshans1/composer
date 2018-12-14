@@ -1,9 +1,8 @@
 <?php
 
-
 use Phinx\Migration\AbstractMigration;
 
-class CreateBillReceivesTable extends AbstractMigration
+class CreateBillPaysTable extends AbstractMigration
 {
     /**
      * Change Method.
@@ -32,21 +31,27 @@ class CreateBillReceivesTable extends AbstractMigration
      */
     public function up()
     {
-        $this->table('bill_receives')
+        $this->table('bill_pays')
             ->addColumn('date_launch','date')
             ->addColumn('name','string')
             ->addColumn('value','float')
             ->addColumn('user_id','integer')
+            ->addColumn('category_cost_id','integer')
             ->addColumn('created_at','datetime')
             ->addColumn('updated_at','datetime')
-            ->addForeignKey('user_id','users','id')
+            ->addForeignKey('user_id','users','id', 
+            array('delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'))
+            ->addForeignKey('category_cost_id','category_costs','id', 
+            array('delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION'))
             ->save();
     }
 
     public function down()
     {
-        $this->table('bill_receives')
-            ->dropForeignKey('bill_receives_ibfk_1')
+        $this->table('bill_pays')
+            ->dropForeignKey('bill_pays_ibfk_1')
+            ->dropForeignKey('bill_pays_ibfk_2')
             ->drop()->save();
     }
+
 }

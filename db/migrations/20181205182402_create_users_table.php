@@ -45,7 +45,9 @@ class CreateUsersTable extends AbstractMigration
 
     public function down()
     {
-        $this->table('users')->drop()->save();
+        $this->table('users')
+        ->removeIndex(array('email'))
+        ->drop()->save();
     }
 
 }
