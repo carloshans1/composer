@@ -48,9 +48,9 @@ class CreateBillPaysTable extends AbstractMigration
 
     public function down()
     {
-        $this->table('bill_pays')
-            ->dropForeignKey('bill_pays_ibfk_1')
-            ->dropForeignKey('bill_pays_ibfk_2')
+        $table = $this->table('bill_pays');
+        $table->dropForeignKey('user_id')
+            ->dropForeignKey('category_cost_id')
             ->drop()->save();
     }
 

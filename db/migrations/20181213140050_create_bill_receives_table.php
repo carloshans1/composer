@@ -45,8 +45,8 @@ class CreateBillReceivesTable extends AbstractMigration
 
     public function down()
     {
-        $this->table('bill_receives')
-            ->dropForeignKey('bill_receives_ibfk_1')
+        $table = $this->table('bill_receives');
+        $table->dropForeignKey('user_id')
             ->drop()->save();
     }
 }

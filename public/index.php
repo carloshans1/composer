@@ -20,11 +20,18 @@ $app->plugin(new ViewPlugin());
 $app->plugin(new DbPlugin());
 $app->plugin(new AuthPlugin);
 
+$app->get('/home/{name}/{id}', function (ServerRequestInterface $request) {
+    $response = new \Zend\Diactoros\Response();
+    $response->getBody()->write("response com emmiter do diactoros");
+    return $response;
+});
+
 //Incluindo o arquivo de rotas
 require_once __DIR__ . '/../src/controllers/category-costs.php';
+require_once __DIR__ . '/../src/controllers/bill-receives.php';
+require_once __DIR__ . '/../src/controllers/bill-pays.php';
 require_once __DIR__ . '/../src/controllers/users.php';
 require_once __DIR__ . '/../src/controllers/auth.php';
-require_once __DIR__ . '/../src/controllers/bill-receives.php';
 
 
 $app->start();

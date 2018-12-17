@@ -14,9 +14,7 @@ class AddUserToCategoryCosts extends AbstractMigration
     }
     public function down()
     {
-        $this->table('category_costs')
-            ->dropForeignKey('category_costs_ibfk_1');
-            //->removeColumn('user_id')
-            
+        $table = $this->table('category_costs');
+        $table->dropForeignKey('user_id')->save();
     }
 }

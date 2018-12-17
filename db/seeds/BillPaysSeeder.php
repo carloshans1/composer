@@ -20,14 +20,14 @@ class BillPaysSeeder extends AbstractSeed
         $faker = \Faker\Factory::create('pt_BR');
         $faker->addProvider($this);
         $billPays = $this->table('bill_pays');
-        $userId = rand(1,4);
         $data = [];
         foreach (range(1, 20) as $value) {
+            $userId = rand(1,4);
             $data[] = [
-                'date_launch' => $faker->date(),
+                'date_launch' => $faker->dateTimeBetween('-1 month')->format('Y-m-d'),
                 'name' => $faker->word,
                 'value' => $faker->randomFloat(2, 10, 1000),
-                'user_id' => rand(1,4),
+                'user_id' => $userId,
                 'category_cost_id' => $faker->categoryId($userId),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
@@ -38,7 +38,7 @@ class BillPaysSeeder extends AbstractSeed
 
     public function categoryId($userId){
         $categories = $this->categories->where('user_id', $userId);
-        $categories = $categories->pluck('id'); //coleção de IDs
+        $categories = $categories->pluck('id'); //transformar um model em coleção de IDs
         return \Faker\Provider\Base::randomElement($categories->toArray());
     }
 }
