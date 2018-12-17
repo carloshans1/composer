@@ -5,54 +5,75 @@ use Psr\Http\Message\ServerRequestInterface;
 
 /** arquivo de rotas
  * estes comandos estavam no arquivo /public/index.php
- * foram transferidos para bill-receives para organição
+ * foram transferidos para bill-pays para organição
  */
 
 
 $app
-    ->get('/bill-receives', function() use($app) {
+    ->get('/bill-pays', function() use($app) {
         $view = $app->service('view.renderer');
-        $repository = $app->service('bill-receive.repository');
+        $repository = $app->service('bill-pay.repository');
         $auth = $app->service('auth');
         $bills = $repository->findByField('user_id',$auth->user()->getId());    
-        return $view->render('bill-receives/list.html.twig', [
+        return $view->render(
+            'bill-pays/list.html.twig', [
             'bills' => $bills
         ]);
-    }, 'bill-receives.list')
+    }, 'bill-pays.list')
     
-    ->get('/bill-receives/new', function () use ($app) {
+    ->get('/bill-pays/new', function () use ($app) {
         $view = $app->service('view.renderer');
-        return $view->render('bill-receives/create.html.twig');
-    }, 'bill-receives.new')
+        $auth = $app->service('auth');
+        $categoryRepository = $app->service('category-cost.repository');
+        $categories = $categoryRepository->findByField('user_id', $auth->user()->getId());
+        return $view->render(
+            'bill-pays/create.html.twig', [
+            'categories' => $categories
+            ]
+        );
+    }, 'bill-pays.new')
 
-    ->post('/bill-receives/store', function(ServerRequestInterface $request) use($app){
+    ->post('/bill-pays/store', function(ServerRequestInterface $request) use($app){
         //Cadastro de bill
         $data = $request->getParsedBody();
-        $repository = $app->service('bill-receive.repository');
+        $repository = $app->service('bill-pay.repository');
+        $categoryRepository = $app->service('category-cost.repository');
         $auth = $app->service('auth');
         $data['user_id'] = $auth->user()->getId();
         $data['date_launch'] = dateParse($data['date_launch']);
         $data['value'] = numberParse($data['value']);
+        $data['category_cost_id'] = $categoryRepository->findOneBy(
+            [
+            'id' => $data['category_cost_id'],
+            'user_id' => $auth->user()->getId()
+            ]
+        )->id;
         $repository->create($data);
         //Redireciona pelo metodo redirect no Application.php
-        //return $app->redirect('/bill-receives');
-        return $app->route('bill-receives.list');
-    }, 'bill-receives.store')
-    ->get('/bill-receives/{id}/edit', function(ServerRequestInterface $request) use($app) {
+        //return $app->redirect('/bill-pays');
+        return $app->route('bill-pays.list');
+    }, 'bill-pays.store')
+
+    ->get('/bill-pays/{id}/edit', function(ServerRequestInterface $request) use($app) {
         $view = $app->service('view.renderer');
-        $repository = $app->service('bill-receive.repository');
+        $repository = $app->service('bill-pay.repository');
         $id = $request->getAttribute('id');
         $auth = $app->service('auth');
         $bill = $repository->findOneBy([
             'id' => $id,
             'user_id' => $auth->user()->getId()
         ]);
-        return $view->render('bill-receives/edit.html.twig', [
-            'bill' => $bill
+        $categoryRepository = $app->service('category-cost.repository');
+        $categories = $categoryRepository->findByField('user_id',$auth->user()->getId());
+        return $view->render('bill-pays/edit.html.twig', [
+            'bill' => $bill,
+            'categories' => $categories
         ]);
-    }, 'bill-receives.edit')
-    ->post('/bill-receives/{id}/update', function(ServerRequestInterface $request) use($app) {
-        $repository = $app->service('bill-receive.repository');
+    }, 'bill-pays.edit')
+    
+    ->post('/bill-pays/{id}/update', function(ServerRequestInterface $request) use($app) {
+        $repository = $app->service('bill-pay.repository');
+        $categoryRepository = $app->service('category-cost.repository');
         $id = $request->getAttribute('id');
         /** Metodo find e findOrFail
          * find faz consulta e findorfail cria uma exceção se não encontrar
@@ -63,32 +84,41 @@ $app
         $data['user_id'] = $auth->user()->getId();
         $data['date_launch'] = dateParse($data['date_launch']);
         $data['value'] = numberParse($data['value']);
+        $data['category_cost_id'] = $categoryRepository->findOneBy(
+            [
+            'id' => $data['category_cost_id'],
+            'user_id' => $auth->user()->getId()
+            ]
+        )->id;
         $repository->update([
             'id' => $id, 
             'user_id' => $auth->user()->getId()
         ], $data);
-        return $app->route('bill-receives.list');
-    }, 'bill-receives.update')
-    ->get('/bill-receives/{id}/show', function(ServerRequestInterface $request) use($app) {
+        return $app->route('bill-pays.list');
+    }, 'bill-pays.update')
+    
+    ->get('/bill-pays/{id}/show', function(ServerRequestInterface $request) use($app) {
         $view = $app->service('view.renderer');
-        $repository = $app->service('bill-receive.repository');
+        $repository = $app->service('bill-pay.repository');
         $id = $request->getAttribute('id');
         $auth = $app->service('auth');
         $bill = $repository->findOneBy([
             'id' => $id,
             'user_id' => $auth->user()->getId()
         ]);
-        return $view->render('bill-receives/show.html.twig', [
+        return $view->render(
+            'bill-pays/show.html.twig', [
             'bill' => $bill
         ]);
-    }, 'bill-receives.show')
-    ->get('/bill-receives/{id}/delete', function(ServerRequestInterface $request) use($app) {
-        $repository = $app->service('bill-receive.repository');
+    }, 'bill-pays.show')
+    
+    ->get('/bill-pays/{id}/delete', function(ServerRequestInterface $request) use($app) {
+        $repository = $app->service('bill-pay.repository');
         $id = $request->getAttribute('id');
         $auth = $app->service('auth');
         $repository->delete([
             'id' => $id, 
             'user_id' => $auth->user()->getId()
         ]);
-        return $app->route('bill-receives.list');
-    }, 'bill-receives.delete');
+        return $app->route('bill-pays.list');
+    }, 'bill-pays.delete');

@@ -22,6 +22,11 @@ class BillPay extends Model
         'user_id',
         'category_cost_id'
     ];
+
+    public function categoryCost() {
+        // Uma categoria pode estar em varias contas a pagar
+        return $this->belongsTo(CategoryCost::class);        
+    }
 }
 
 
