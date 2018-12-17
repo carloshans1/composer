@@ -27,6 +27,7 @@ $app->get('/home/{name}/{id}', function (ServerRequestInterface $request) {
 });
 
 //Incluindo o arquivo de rotas
+require_once __DIR__ . '/../src/controllers/statements.php';
 require_once __DIR__ . '/../src/controllers/category-costs.php';
 require_once __DIR__ . '/../src/controllers/bill-receives.php';
 require_once __DIR__ . '/../src/controllers/bill-pays.php';
