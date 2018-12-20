@@ -82,7 +82,7 @@ class Application
         return $this;
     }
 
-    protected function runBefores(): ?ResponseInterface {
+    protected function runBefores(): ? ResponseInterface {
         foreach ($this->befores as $callback) {
             $result = $callback($this->service(RequestInterface::class));
             if($result instanceof ResponseInterface){
@@ -127,3 +127,16 @@ class Application
         $emitter->emit($response);
     }
 }
+
+
+/**
+ * Lógica - função -> resposta ou redirecionamento
+ * Lógica - função -> resposta ou redirecionamento
+ * Lógica - função -> resposta ou redirecionamento
+ * Lógica - função -> resposta ou redirecionamento ---
+ * Lógica - função -> resposta ou redirecionamento
+ * Lógica - função -> resposta ou redirecionamento
+ * Lógica - função -> resposta ou redirecionamento
+ * Lógica - função -> resposta ou redirecionamento
+ * Continuo o processamento
+ */

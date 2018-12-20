@@ -15,7 +15,8 @@
         "components/jquery": "~3.0",
         "twbs/bootstrap": "~3.0",
         "illuminate/database": "5.4.13",
-        "jasny/auth": "1.0.1"
+        "jasny/auth": "1.0.1",
+        "vlucas/phpdotenv": "2.4"
     },
     "autoload": {
         "psr-4": {

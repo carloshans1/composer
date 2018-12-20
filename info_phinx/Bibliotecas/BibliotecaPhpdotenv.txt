@@ -1,0 +1,23 @@
+https://github.com/vlucas/phpdotenv
+
+linha comando para instalação:
+$ composer require vlucas/phpdotenv:2.4
+
+
+****************************************************************************************************
+
+Você nunca deve armazenar credenciais confidenciais em seu código. 
+Armazenar configuração no ambiente é um dos princípios de um aplicativo de doze fatores. 
+Tudo o que é provável que mude entre ambientes de implementação 
+- como credenciais de banco de dados ou credenciais para serviços de terceiros 
+- deve ser extraído do código em variáveis ​​de ambiente.
+
+Basicamente, um arquivo .env é uma maneira fácil de carregar variáveis ​​de configuração 
+personalizadas que seu aplicativo precisa, sem ter que modificar arquivos 
+.htaccess ou hosts virtuais Apache / nginx. 
+Isso significa que você não terá que editar nenhum arquivo fora do projeto, 
+e todas as variáveis ​​de ambiente são sempre definidas, não importa como você executa seu projeto 
+- Apache, Nginx, CLI, e até mesmo o servidor embutido do PHP 5.4. É muito mais fácil do que 
+todas as outras maneiras que você conhece para definir variáveis ​​de ambiente, e você vai adorar.
+
+****************************************************************************************************

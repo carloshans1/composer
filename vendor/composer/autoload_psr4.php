@@ -28,6 +28,7 @@ return array(
     'Illuminate\\Contracts\\' => array($vendorDir . '/illuminate/contracts'),
     'Illuminate\\Container\\' => array($vendorDir . '/illuminate/container'),
     'Faker\\' => array($vendorDir . '/fzaninotto/faker/src/Faker'),
+    'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib/Doctrine/Common/Inflector'),
     'Cake\\Utility\\' => array($vendorDir . '/cakephp/utility'),
     'Cake\\Datasource\\' => array($vendorDir . '/cakephp/datasource'),
