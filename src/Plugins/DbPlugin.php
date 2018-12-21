@@ -19,6 +19,7 @@ use SONFin\Models\User;
 use SONFin\Models\BillReceive;
 use SONFin\Models\BillPay;
 use SONFin\Repository\StatementRepository;
+use SONFin\Repository\CategoryCostRepository;
 
 class DbPlugin implements PluginInterface
 {
@@ -29,10 +30,9 @@ class DbPlugin implements PluginInterface
         $capsule->addConnection($config['default_connection']);
         $capsule->bootEloquent();
         
-        $container->add('repository.factory', new RepositoryFactory());
-        
-        $container->addLazy('category-cost.repository', function(ContainerInterface $container) {
-            return $container->get('repository.factory')->factory(CategoryCost::class);
+        $container->add('repository.factory', new RepositoryFactory());        
+        $container->addLazy('category-cost.repository', function() {
+            return new CategoryCostRepository();
         });
 
         $container->addLazy('bill-receive.repository', function(ContainerInterface $container) {
