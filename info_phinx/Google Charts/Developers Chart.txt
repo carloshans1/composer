@@ -1,0 +1,9 @@
+Utilizou no sistema SONFINACAS o Google chart tools.
+
+Localizado: https://developers.google.com/chart/
+
+Display live data on your site
+About Google chart tools
+Google chart tools are powerful, simple to use, and free. Try out our rich gallery of interactive charts and data tools.
+Get Started Chart Gallery 
+

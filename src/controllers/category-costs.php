@@ -14,8 +14,8 @@ $app
         $view = $app->service('view.renderer');
         $repository = $app->service('category-cost.repository');
         $auth = $app->service('auth');
-        echo $auth->user()->getId();
-        $categories = $repository-> findByField('user_id',$auth->user()->getId()); //all();     
+        
+        $categories = $repository->findByField('user_id',$auth->user()->getId());     
         return $view->render('category-costs/list.html.twig', [
             'categories' => $categories
         ]);
