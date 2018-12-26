@@ -19,16 +19,17 @@ use Zend\Diactoros\Response\SapiEmitter;
 
 class Application
 {
-    private $serviceContainer;
-    private $befores = [];
+    private $_serviceContainer;
+    private $_befores = [];
     /**
      * Application constructor.
-     * @param $serviceContainer  
+     *
+     * @param $_serviceContainer  
      */
     
-    public function __construct(ServiceContainerInterface $serviceContainer)
+    public function __construct(ServiceContainerInterface $_serviceContainer)
     {
-        $this->serviceContainer = $serviceContainer;
+        $this->serviceContainer = $_serviceContainer;
     }
 
     public function service($name)
@@ -82,10 +83,11 @@ class Application
         return $this;
     }
 
-    protected function runBefores(): ? ResponseInterface {
+    protected function runBefores(): ? ResponseInterface
+    {
         foreach ($this->befores as $callback) {
             $result = $callback($this->service(RequestInterface::class));
-            if($result instanceof ResponseInterface){
+            if($result instanceof ResponseInterface) {
                 return $result;
             }
         }
@@ -111,7 +113,7 @@ class Application
         }
 
         $result = $this->runBefores();
-        if($result){
+        if($result) {
             $this->emitResponse($result);
             return;
         }

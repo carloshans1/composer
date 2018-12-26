@@ -1,7 +1,8 @@
 <?php
 
-/** Função gerar uma instancia do repositorio
+/**
  * 
+ * Função gerar uma instancia do repositorio
  */
 
 declare(strict_types=1);

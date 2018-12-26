@@ -16,8 +16,8 @@ interface ViewRendererInterface
     /**
      * Função: render 
      *
-     * @param  mixed $template
-     * @param  mixed $context
+     * @param mixed $template
+     * @param mixed $context
      *
      * @return ResponseInterface
      */

@@ -1,6 +1,8 @@
 <?php
 
-/** Auth Interface
+/**
+ * 
+ * Auth Interface
  * User: Carlos de Oliveira
  * Date: 07/12/2018
  * Time: 12:50
@@ -30,9 +32,11 @@ class JasnyAuth extends \Jasny\Auth
         $this->repository = $repository;
     }
 
-    /** Fetch a user by ID
+    /**
      * 
-     * @param int/string $id
+     * Fetch a user by ID
+     * 
+     * @param  int/string $id
      * @return User/null
      */
     public function fetchUserById($id)
@@ -40,14 +44,16 @@ class JasnyAuth extends \Jasny\Auth
         return $this->repository->find($id, false);
     }
 
-    /** Fetch a user by username
+    /**
      * 
-     * @param string $username
+     * Fetch a user by username
+     * 
+     * @param  string $username
      * @return User/null
      */
     public function fetchUserByUsername($username)
     {
-        return $this->repository->findByField('email',$username)[0];
+        return $this->repository->findByField('email', $username)[0];
     }
 
 }

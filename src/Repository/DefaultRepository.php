@@ -1,6 +1,8 @@
 <?php
 
-/** Implementação dos metodos
+/**
+ * 
+ * Implementação dos metodos
  * User: carlosoliveira 
  * Date: 03/12/2018
  * Time: 10:20
@@ -15,7 +17,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class DefaultRepository implements RepositoryInterface
 {
-    /** Declaração variavel
+    /**
+     * 
+     * Declaração variavel
+     *
      * @var string
      */
     private $modelClass;
@@ -24,7 +29,10 @@ class DefaultRepository implements RepositoryInterface
      */
     private $model;
     
-    /** Passa o nome do modelo - Instancia do model
+    /**
+     * 
+     * Passa o nome do modelo - Instancia do model
+     *
      * @param string $modelClass
      */
     public function __construct(string $modelClass)
@@ -59,7 +67,8 @@ class DefaultRepository implements RepositoryInterface
         $model->delete();
     }
 
-    protected function findInternal($id){
+    protected function findInternal($id)
+    {
         return is_array($id) ? $model = $this->findOneBy($id): $this->find($id);
     }
 
@@ -72,14 +81,14 @@ class DefaultRepository implements RepositoryInterface
 
     public function findByField(string $field,$value)
     {
-        return $this->model->where($field,'=',$value)->get();
+        return $this->model->where($field, '=', $value)->get();
     }
 
     public function findOneBy(array $search)
     {
         $queryBuilder = $this->model;
         foreach($search as $field => $value){
-            $queryBuilder = $queryBuilder->where($field,'=',$value);
+            $queryBuilder = $queryBuilder->where($field, '=', $value);
         }
         return $queryBuilder->firstOrFail();
     }

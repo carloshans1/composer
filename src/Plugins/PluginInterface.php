@@ -1,5 +1,7 @@
 <?php
-/** Plugin Interface
+/**
+ * 
+ * Plugin Interface
  * User: carlosoliveira
  * Date: 12/11/2018
  * Time: 17:04

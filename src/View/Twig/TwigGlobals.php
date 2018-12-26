@@ -1,5 +1,7 @@
 <?php
-/**Class Variaveis Globais de controle login
+/**
+ * 
+ * Class Variaveis Globais de controle login
  * User: Carlos
  * Date: 11/12/2018
  * Time: 10:00
@@ -12,10 +14,17 @@ use SONFin\Auth\AuthInterface;
 
 class TwigGlobals extends \Twig_Extension implements \Twig_Extension_GlobalsInterface
 {
-    /** @var AuthInterface */
+    /**
+     * 
+     *
+     * @var AuthInterface 
+     */
     private $auth;
 
-    /** TwigGlobals constructor */
+    /**
+     * 
+     * TwigGlobals constructor 
+     */
     public function __construct(AuthInterface $auth)
     {
         $this->auth = $auth;

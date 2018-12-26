@@ -1,6 +1,8 @@
 <?php
 
-/** Auth Interface
+/**
+ * 
+ * Auth Interface
  * User: Carlos de Oliveira
  * Date: 06/12/2018
  * Time: 17:32
@@ -52,8 +54,9 @@ class Auth implements AuthInterface
         return $this->jasnyAuth->hashPassword($password);
     }   
     
-    protected function sessionStart() {
-        if(session_status() == PHP_SESSION_NONE){
+    protected function sessionStart()
+    {
+        if(session_status() == PHP_SESSION_NONE) {
             session_start();
         }
     }

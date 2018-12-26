@@ -1,7 +1,9 @@
 <?php
 declare(strict_types=1);
 
-/** Auth Interface
+/**
+* 
+ * Auth Interface
  * User: Carlos de Oliveira
  * Date: 06/12/2018
  * Time: 17:32
@@ -15,19 +17,32 @@ use SONFin\Models\UserInterface;
 interface AuthInterface
 {
 
-/** Verifica se a autenticação deu certo */
+    /**
+     * Verifica se a autenticação deu certo 
+     */
     public function login(array $credentials):bool;
 
-/** Metodo para checar */
+    /**
+     * Metodo para checar 
+     */
     public function check():bool;
 
-    /** Metodo para remover o usuario até que faça o login novamente */
+    /**
+     * 
+     * Metodo para remover o usuario até que faça o login novamente 
+     */
     public function logout():void; 
 
-    /** Metodo para criptografar a senha */
+    /**
+     * 
+     * Metodo para criptografar a senha 
+     */
     public function hashPassword(string $password):string;
 
-    /** Pega usuario pela autenticação e retorna UserInterface*/
+    /**
+     * 
+     * Pega usuario pela autenticação e retorna UserInterface
+     */
     public function user(): ?UserInterface;
 
 }
