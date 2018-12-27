@@ -1,3 +1,8 @@
 Explicação da instalação do heroku.
 
 https://devcenter.heroku.com/articles/heroku-cli
+
+
+para acessar os projetos:
+
+https://dashboard.heroku.com/apps
